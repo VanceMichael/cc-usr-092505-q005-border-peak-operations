@@ -1,0 +1,48 @@
+{
+  "scenarioId": "hrb-double-festival-2026",
+  "description": "哈尔滨机场口岸双节高峰固定重现场景（虚构数据，不接入真实设备）",
+  "window": {
+    "startIso": "2026-10-01T20:00",
+    "endIso": "2026-10-02T02:00"
+  },
+  "flights": [
+    { "flightNo": "CA101", "direction": "arrival", "scheduledIso": "2026-10-01T20:30", "estPax": 300 },
+    { "flightNo": "CA202", "direction": "arrival", "scheduledIso": "2026-10-01T21:30", "estPax": 160 },
+    { "flightNo": "MU303", "direction": "departure", "scheduledIso": "2026-10-01T22:00", "estPax": 240 },
+    { "flightNo": "HU404", "direction": "arrival", "scheduledIso": "2026-10-01T23:30", "estPax": 480 },
+    { "flightNo": "CZ505", "direction": "departure", "scheduledIso": "2026-10-02T01:00", "estPax": 300 },
+    { "flightNo": "CA606", "direction": "arrival", "scheduledIso": "2026-10-01T21:00", "estPax": 200 }
+  ],
+  "lanes": [
+    { "id": "EM1", "mode": "manual", "direction": "entry" },
+    { "id": "EM2", "mode": "manual", "direction": "entry" },
+    { "id": "EM3", "mode": "manual", "direction": "entry" },
+    { "id": "ES1", "mode": "smart", "direction": "entry", "deviceId": "D-ES1" },
+    { "id": "ES2", "mode": "smart", "direction": "entry", "deviceId": "D-ES2" },
+    { "id": "XM1", "mode": "manual", "direction": "exit" },
+    { "id": "XM2", "mode": "manual", "direction": "exit" },
+    { "id": "XS1", "mode": "smart", "direction": "exit", "deviceId": "D-XS1" }
+  ],
+  "devices": [
+    { "id": "D-ES1", "type": "smart-gate", "status": "active" },
+    { "id": "D-ES2", "type": "smart-gate", "status": "active" },
+    { "id": "D-XS1", "type": "smart-gate", "status": "active" }
+  ],
+  "officers": [
+    { "id": "M01", "certs": ["manual-inspection"], "directions": ["entry"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "M02", "certs": ["manual-inspection"], "directions": ["entry"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "M03", "certs": ["manual-inspection"], "directions": ["entry"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-01T23:00" } },
+    { "id": "M04", "certs": ["manual-inspection"], "directions": ["entry"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "M05", "certs": ["manual-inspection"], "directions": ["exit"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "M06", "certs": ["manual-inspection"], "directions": ["exit"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "M07", "certs": ["manual-inspection"], "directions": ["entry", "exit"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "S01", "certs": ["smart-supervision"], "directions": ["entry"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "S02", "certs": ["smart-supervision"], "directions": ["entry"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "S03", "certs": ["smart-supervision"], "directions": ["exit"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "S04", "certs": ["smart-supervision"], "directions": ["exit"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "U01", "certs": ["urgent-cooperation", "manual-inspection"], "directions": ["entry", "exit"], "reserve": false, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "R01", "certs": ["urgent-cooperation"], "reserve": true, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } },
+    { "id": "R02", "certs": ["urgent-cooperation"], "reserve": true, "shift": { "startIso": "2026-10-01T19:30", "endIso": "2026-10-02T02:30" } }
+  ],
+  "documents": []
+}

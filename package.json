@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "build": "node --check src/domain.js"
+    "replay": "node scripts/replay.mjs",
+    "build": "node --check src/domain.js && node --check src/time.js && node --check src/clock.js && node --check src/flights.js && node --check src/scheduler.js && node --check src/documents.js && node --check src/service.js && node --check src/index.js"
   }
 }

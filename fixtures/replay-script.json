@@ -1,0 +1,59 @@
+[
+  { "at": "2026-10-01T19:50", "kind": "publish" },
+  { "at": "2026-10-01T20:05", "kind": "event", "event": {
+    "type": "flight-update", "eventId": "f-actual", "dispatcherId": "D-A",
+    "expectedVersion": 1, "flightNo": "CA101", "updateId": "u-actual", "expectedFlightVersion": 0,
+    "actualPax": 330, "reason": "实际载客上报"
+  } },
+  { "at": "2026-10-01T20:35", "kind": "event", "event": {
+    "type": "urgent-case", "eventId": "urg-1", "dispatcherId": "D-A", "expectedVersion": 2,
+    "caseId": "C-101", "startIso": "2026-10-01T21:00", "endIso": "2026-10-01T22:00",
+    "staffCount": 1, "direction": "entry", "reason": "入境加急协查"
+  } },
+  { "at": "2026-10-01T21:00", "kind": "summary", "role": "duty-commander" },
+  { "at": "2026-10-01T21:05", "kind": "event", "event": {
+    "type": "flight-update", "eventId": "f-delay", "dispatcherId": "D-B", "expectedVersion": 3,
+    "flightNo": "CA202", "updateId": "u-delay", "expectedFlightVersion": 0,
+    "revisedIso": "2026-10-02T00:30", "reason": "航班推迟"
+  } },
+  { "at": "2026-10-01T21:06", "kind": "event", "event": {
+    "type": "flight-update", "eventId": "f-delay", "dispatcherId": "D-B", "expectedVersion": 4,
+    "flightNo": "CA202", "updateId": "u-delay", "expectedFlightVersion": 9,
+    "revisedIso": "2026-10-02T01:30"
+  } },
+  { "at": "2026-10-01T21:35", "kind": "event", "event": {
+    "type": "device-outage", "eventId": "out-1", "dispatcherId": "D-A", "expectedVersion": 4,
+    "deviceId": "D-ES1", "fromIso": "2026-10-01T22:00", "toIso": "2026-10-02T00:30",
+    "reason": "自助闸机故障"
+  } },
+  { "at": "2026-10-01T22:05", "kind": "event", "event": {
+    "type": "doc-anomaly", "eventId": "doc-1", "dispatcherId": "D-A", "expectedVersion": 5,
+    "flightNo": "HU404", "docId": "DOC-1", "caseRef": "CASE-1", "docAnomalyPax": 18,
+    "summary": "多名旅客证件材料不全", "materials": [{ "kind": "doc", "ref": "X-1" }]
+  } },
+  { "at": "2026-10-01T22:06", "kind": "event", "event": {
+    "type": "post-swap", "eventId": "swap-a", "dispatcherId": "D-A", "expectedVersion": 6,
+    "resourceVersions": { "lane:EM2": 0, "officer:M07": 0 },
+    "laneId": "EM2", "slotStart": "2026-10-01T23:30", "toOfficerId": "M07",
+    "reason": "跨方向警力支援入境"
+  } },
+  { "at": "2026-10-01T22:07", "kind": "event", "event": {
+    "type": "post-swap", "eventId": "swap-b", "dispatcherId": "D-B", "expectedVersion": 7,
+    "resourceVersions": { "lane:EM2": 0, "officer:M02": 0 },
+    "laneId": "EM2", "slotStart": "2026-10-01T23:30", "toOfficerId": "M02",
+    "reason": "争用同一通道"
+  } },
+  { "at": "2026-10-01T22:10", "kind": "summary", "role": "duty-commander" },
+  { "at": "2026-10-01T23:05", "kind": "event", "event": {
+    "type": "shift-change", "eventId": "shift-1", "dispatcherId": "D-A", "expectedVersion": 7,
+    "officerId": "M03", "fromIso": "2026-10-01T23:30",
+    "shift": { "startIso": "2026-10-01T23:30", "endIso": "2026-10-02T02:30" },
+    "reason": "加班补位"
+  } },
+  { "at": "2026-10-01T23:40", "kind": "summary", "role": "flight-support" },
+  { "at": "2026-10-02T00:35", "kind": "event", "event": {
+    "type": "resolve-anomaly", "eventId": "res-1", "dispatcherId": "D-A", "expectedVersion": 8,
+    "docId": "DOC-1"
+  } },
+  { "at": "2026-10-02T00:40", "kind": "summary", "role": "duty-commander" }
+]

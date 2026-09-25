@@ -1,0 +1,110 @@
+{
+  "title": "口岸高峰勤务编排输入契约",
+  "description": "高峰勤务后端（PeakService）的场景输入结构。全部数据为虚构示例，不含真实个人信息。",
+  "type": "object",
+  "required": ["window", "flights", "lanes", "devices", "officers"],
+  "properties": {
+    "scenarioId": { "type": "string" },
+    "description": { "type": "string" },
+    "window": {
+      "type": "object",
+      "required": ["startIso", "endIso"],
+      "properties": {
+        "startIso": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}$" },
+        "endIso": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}$" }
+      },
+      "additionalProperties": false
+    },
+    "flights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["flightNo", "direction", "scheduledIso"],
+        "properties": {
+          "flightNo": { "type": "string" },
+          "direction": { "enum": ["arrival", "departure"] },
+          "scheduledIso": { "type": "string" },
+          "revisedIso": { "type": "string" },
+          "estPax": { "type": "integer", "minimum": 0 },
+          "actualPax": { "type": ["integer", "null"], "minimum": 0 },
+          "docAnomalyPax": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "lanes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "mode", "direction"],
+        "properties": {
+          "id": { "type": "string" },
+          "mode": { "enum": ["manual", "smart"] },
+          "direction": { "enum": ["entry", "exit"] },
+          "deviceId": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "status": { "enum": ["active", "retired"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "officers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "certs", "shift"],
+        "properties": {
+          "id": { "type": "string" },
+          "certs": {
+            "type": "array",
+            "items": { "enum": ["manual-inspection", "smart-supervision", "urgent-cooperation"] }
+          },
+          "directions": {
+            "type": "array",
+            "items": { "enum": ["entry", "exit"] }
+          },
+          "reserve": { "type": "boolean" },
+          "shift": {
+            "type": "object",
+            "required": ["startIso", "endIso"],
+            "properties": {
+              "startIso": { "type": "string" },
+              "endIso": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "documents": {
+      "type": "array",
+      "description": "证件材料只在授权检查范围内可见；明细不进入航班快照与事件账本。",
+      "items": {
+        "type": "object",
+        "required": ["docId", "caseRef"],
+        "properties": {
+          "docId": { "type": "string" },
+          "caseRef": { "type": "string" },
+          "flightNo": { "type": ["string", "null"] },
+          "summary": { "type": "string" },
+          "materials": { "type": "array" },
+          "scope": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
